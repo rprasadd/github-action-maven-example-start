@@ -6,7 +6,7 @@ public class App
     public static void main( String[] args ) throws IOException
     {
         //Instantiating the File class
-        File file = new File("output/out.log");
+        File file = new File("output\\out.log");
         //Instantiating the PrintStream class
         PrintStream stream = new PrintStream(file);
         System.setOut(stream);
