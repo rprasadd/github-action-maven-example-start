@@ -50,9 +50,11 @@ jobs:
         with:
           name: Package
       
+      - run: ls -R
       - run: echo ${{steps.download.outputs.download-path}}
+      - run: tar -xvzf Package.zip
           
-      - run: Expand-Archive -Path ${{steps.download.outputs.download-path}}\Package.Zip 
+      # - run: Expand-Archive -Path ${{steps.download.outputs.download-path}}\Package.Zip 
       
       - uses: actions/setup-java@v3
         with:
@@ -61,4 +63,4 @@ jobs:
   
       - run: java -jar Package/github-action-maven-tutorial-1.0-SNAPSHOT-jar-with-dependencies.jar
         
-      - run: ls -R
+    
