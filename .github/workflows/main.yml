@@ -37,7 +37,7 @@ jobs:
             java-version: 14
         - run: mvn -B package --file pom.xml
         - run: java -jar target/github-action-maven-tutorial-1.0-SNAPSHOT-jar-with-dependencies.jar
-        - uses: actions/upload-artifact@v1
-          with:
-            name: Package
-            path: output
+        # - uses: actions/upload-artifact@v1
+        #   with:
+        #     name: Package
+        #     path: output
