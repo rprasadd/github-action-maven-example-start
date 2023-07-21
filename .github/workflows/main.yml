@@ -25,8 +25,7 @@ jobs:
         restore-keys: ${{ runner.os }}-m2  
 
     - name: Build project with Maven
-    - run: mvn -B package --file pom.xml
-    - run: java -jar target/github-action-maven-tutorial-1.0-SNAPSHOT-jar-with-dependencies.jar
+      run: mvn -B package --file pom.xml
 
 
   # upload-reports:
