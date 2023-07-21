@@ -25,19 +25,20 @@ jobs:
         restore-keys: ${{ runner.os }}-m2  
 
     - name: Build project with Maven
-      run: mvn -B package --file pom.xml
+      - run: mvn -B package --file pom.xml
+      - run: java -jar target/github-action-maven-tutorial-1.0-SNAPSHOT-jar-with-dependencies.jar
 
-  upload-reports:
-      runs-on: windows-latest
-      needs: [build]
-      steps:
-        - uses: actions/checkout@v2
-        - uses: actions/setup-java@v1
-          with:
-            java-version: 14
-        - run: mvn -B package --file pom.xml
-        - run: java -jar target/github-action-maven-tutorial-1.0-SNAPSHOT-jar-with-dependencies.jar
-        # - uses: actions/upload-artifact@v2
-        #   with:
-        #     name: out.log
-        #     path: output
+  # upload-reports:
+  #     runs-on: windows-latest
+  #     needs: [build]
+  #     steps:
+  #       - uses: actions/checkout@v2
+  #       - uses: actions/setup-java@v1
+  #         with:
+  #           java-version: 14
+  #       - run: mvn -B package --file pom.xml
+  #       - run: java -jar target/github-action-maven-tutorial-1.0-SNAPSHOT-jar-with-dependencies.jar
+  #       # - uses: actions/upload-artifact@v2
+  #       #   with:
+  #       #     name: out.log
+  #       #     path: output
