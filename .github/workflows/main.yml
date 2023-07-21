@@ -29,7 +29,9 @@ jobs:
 
     - name: Run the application
       run: java -jar target/github-action-maven-tutorial-1.0-SNAPSHOT-jar-with-dependencies.jar
-      uses: actions/upload-artifact@v3
+    
+    - name: Upload the report file 
+    - uses: actions/upload-artifact@v3
       with:
         name: out.log
         path: output
