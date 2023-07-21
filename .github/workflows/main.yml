@@ -35,8 +35,7 @@ jobs:
     - name: Upload the jar file 
       uses: actions/upload-artifact@v3
       with:
-        # name: Package
-        name: run.jar
+        name: Package
         path: staging
 
   run-job:
@@ -47,14 +46,14 @@ jobs:
       - name: Download Artifact
         uses: actions/download-artifact@v3
         with:
-          name: run.jar
-
-      # - run: tar -xf Package.zip
+          name: Package
+          
+      - run: tar -xzvf Package.zip
       
       - uses: actions/setup-java@v1
         with:
           java-version: 14
   
-      - run: java -jar run.jar
+      - run: java -jar github-action-maven-tutorial-1.0-SNAPSHOT-jar-with-dependencies.jar
         
       - run: ls -R
