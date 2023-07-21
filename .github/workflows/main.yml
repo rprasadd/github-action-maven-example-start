@@ -52,7 +52,7 @@ jobs:
       
       - run: echo ${{steps.download.outputs.download-path}}
           
-      - run: Expand-Archive -Path ${{steps.download.outputs.download-path}}/Package.Zip 
+      - run: Expand-Archive -Path ${{steps.download.outputs.download-path}}\Package.Zip 
       
       - uses: actions/setup-java@v3
         with:
