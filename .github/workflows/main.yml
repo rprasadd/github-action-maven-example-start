@@ -37,7 +37,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: out.log
-        path: output
+        path: /home/runner/work/github-action-maven-example-start/github-action-maven-example-start/output/
 
   # upload-reports:
   #     runs-on: windows-latest
