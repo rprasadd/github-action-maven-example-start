@@ -11,9 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Set up JDK 14
-      uses: actions/setup-java@v1
+      uses: actions/setup-java@v3
       with:
         java-version: 14
         
@@ -48,12 +48,12 @@ jobs:
         with:
           name: Package
           
-      - run: tar -xzvf Package.zip
+      - run: Expand-Archive -Path Package.Zip 
       
-      - uses: actions/setup-java@v1
+      - uses: actions/setup-java@v3
         with:
           java-version: 14
   
-      - run: java -jar github-action-maven-tutorial-1.0-SNAPSHOT-jar-with-dependencies.jar
+      - run: java -jar Package/github-action-maven-tutorial-1.0-SNAPSHOT-jar-with-dependencies.jar
         
       - run: ls -R
