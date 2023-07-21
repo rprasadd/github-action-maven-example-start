@@ -30,14 +30,13 @@ jobs:
     - name: Run the application
       run: java -jar target/github-action-maven-tutorial-1.0-SNAPSHOT-jar-with-dependencies.jar
       
-    - run: pwd
-    - run: ls -R
+    - run: mkdir staging && cp target/*.log staging
     
     - name: Upload the report file 
       uses: actions/upload-artifact@v3
       with:
-        name: out.log
-        path: /home/runner/work/github-action-maven-example-start/github-action-maven-example-start/output/
+        name: logs
+        path: staging
 
   # upload-reports:
   #     runs-on: windows-latest
