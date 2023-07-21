@@ -52,7 +52,7 @@ jobs:
       
       - run: ls -R
       - run: echo ${{steps.download.outputs.download-path}}
-      - run: tar -xvzf Package.zip
+      - run: tar -xvzf "${{steps.download.outputs.download-path}}\\Package.zip"
           
       # - run: Expand-Archive -Path ${{steps.download.outputs.download-path}}\Package.Zip 
       
