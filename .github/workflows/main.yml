@@ -27,7 +27,7 @@ jobs:
     - name: Build project with Maven
       run: mvn -B package --file pom.xml
 
- upload-reports:
+  upload-reports:
       runs-on: ubuntu-latest
       needs: [build]
       steps:
