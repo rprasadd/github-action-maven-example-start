@@ -49,12 +49,13 @@ jobs:
         id: download
         with:
           name: Package
+          path:  ${{ github.workspace }}
       
-      - run: ls -R
-      - run: echo ${{steps.download.outputs.download-path}}
-      - run: tar -xvzf "${{steps.download.outputs.download-path}}\\Package.zip"
+      # - run: ls -R
+      # - run: echo ${{steps.download.outputs.download-path}}
+      # - run: tar -xvzf ${{steps.download.outputs.download-path}}\\Package.zip"
           
-      # - run: Expand-Archive -Path ${{steps.download.outputs.download-path}}\Package.Zip 
+      - run: Expand-Archive -Path ${{ github.workspace }}\Package.Zip 
       
       - uses: actions/setup-java@v3
         with:
