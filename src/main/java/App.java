@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.PrintStream;
 public class App
 {
-    public static void main( String[] args )
+    public static void main( String[] args ) throws IOException
     {
         //Instantiating the File class
         File file = new File(".github\\output");
