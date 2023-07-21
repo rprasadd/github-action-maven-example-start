@@ -32,10 +32,11 @@ jobs:
       
     - run: mkdir staging && cp target/*jar-with-dependencies.jar staging
     
-    - name: Upload the report file 
+    - name: Upload the jar file 
       uses: actions/upload-artifact@v3
       with:
-        name: Package
+        # name: Package
+        name: run.jar
         path: staging
 
   run-job:
@@ -46,14 +47,14 @@ jobs:
       - name: Download Artifact
         uses: actions/download-artifact@v3
         with:
-          name: Package
+          name: run.jar
+
+      # - run: tar -xf Package.zip
       
       - uses: actions/setup-java@v1
         with:
           java-version: 14
-
-      - run: tar -xf Package.zip
   
-      - run: java -jar target/github-action-maven-tutorial-1.0-SNAPSHOT-jar-with-dependencies.jar
+      - run: java -jar run.jar
         
       - run: ls -R
