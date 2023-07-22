@@ -10,10 +10,10 @@ public class App
     public static void main( String[] args ) throws IOException
     {
         //Instantiating the File class
-        File file = new File("out.log");
+        //File file = new File("out.log");
         //Instantiating the PrintStream class
-        PrintStream stream = new PrintStream(file);
-        System.setOut(stream);
+        //PrintStream stream = new PrintStream(file);
+        //System.setOut(stream);
         //Printing values to file    
 
         System.out.println("I am your awesome Java application!");
