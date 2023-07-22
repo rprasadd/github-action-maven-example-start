@@ -30,9 +30,9 @@ jobs:
 
     - name: Install google chrome
       run: |
-        sudo apt update -y
         wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
         sudo apt install ./google-chrome-stable_current_amd64.deb
+        google-chrome-stable --version
 
     - name: Run the application
       run: java -jar target/github-action-maven-tutorial-1.0-SNAPSHOT-jar-with-dependencies.jar
