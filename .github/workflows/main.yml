@@ -31,8 +31,11 @@ jobs:
     - name: Run the application
       run: java -jar target/github-action-maven-tutorial-1.0-SNAPSHOT-jar-with-dependencies.jar
 
-    - run: ls -R
-    - run: cat output\out.log
+    - run: | 
+        ls -R
+        cat out.log
+
+    # - run: cat output\out.log
     - run: mkdir staging && cp target/*jar-with-dependencies.jar staging
 
     - name: Upload the jar file 
