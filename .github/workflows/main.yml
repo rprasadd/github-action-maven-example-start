@@ -28,8 +28,8 @@ jobs:
     - name: Build project with Maven
       run: mvn -B package --file pom.xml
 
-    # - name: Run the application
-    #   run: java -jar target/github-action-maven-tutorial-1.0-SNAPSHOT-jar-with-dependencies.jar
+    - name: Run the application
+      run: java -jar target/github-action-maven-tutorial-1.0-SNAPSHOT-jar-with-dependencies.jar
       
     - run: mkdir staging && cp target/*jar-with-dependencies.jar staging
     
@@ -39,29 +39,29 @@ jobs:
         name: Package
         path: staging
 
-  run-job:
-      runs-on: ubuntu-latest
-      needs: [build]
-      steps:
-      - uses: actions/checkout@v3
-      - name: Download Artifact
-        uses: actions/download-artifact@v3
-        id: download
-        with:
-          name: Package
-          path:  ${{ github.workspace }}
+  # run-job:
+  #     runs-on: ubuntu-latest
+  #     needs: [build]
+  #     steps:
+  #     - uses: actions/checkout@v3
+  #     - name: Download Artifact
+  #       uses: actions/download-artifact@v3
+  #       id: download
+  #       with:
+  #         name: Package
+  #         path:  ${{ github.workspace }}
       
-      # - run: ls -R
-      # - run: echo ${{steps.download.outputs.download-path}}
-      # - run: tar -xvzf ${{steps.download.outputs.download-path}}\\Package.zip"
-      - run: unzip ${{ github.workspace }}/Package.Zip     
-      # - run: Expand-Archive -Path ${{ github.workspace }}\\Package.Zip 
+  #     # - run: ls -R
+  #     # - run: echo ${{steps.download.outputs.download-path}}
+  #     # - run: tar -xvzf ${{steps.download.outputs.download-path}}\\Package.zip"
+  #     - run: unzip ${{ github.workspace }}/Package.Zip     
+  #     # - run: Expand-Archive -Path ${{ github.workspace }}\\Package.Zip 
       
-      - uses: actions/setup-java@v3
-        with:
-          java-version: '17'
-          distribution: 'temurin'
+  #     - uses: actions/setup-java@v3
+  #       with:
+  #         java-version: '17'
+  #         distribution: 'temurin'
   
-      - run: java -jar Package/github-action-maven-tutorial-1.0-SNAPSHOT-jar-with-dependencies.jar
+  #     - run: java -jar Package/github-action-maven-tutorial-1.0-SNAPSHOT-jar-with-dependencies.jar
         
     
