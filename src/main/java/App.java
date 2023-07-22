@@ -23,6 +23,7 @@ public class App
         System.out.println(ans);
 
         UrlSelenium selenium = new UrlSelenium(0, null);
+       
         selenium.initDriver();
         selenium.capture("https://www.google.com");
         selenium.capture("https://facebook.com");

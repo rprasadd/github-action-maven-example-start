@@ -7,6 +7,20 @@ import org.openqa.selenium.Point;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+import org.openqa.selenium.By;
+
+import org.openqa.selenium.WebDriver;
+
+import org.openqa.selenium.WebElement;
+
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import org.openqa.selenium.chrome.ChromeOptions;
+
+import java.util.concurrent.TimeUnit;
+
  
 public class UrlSelenium {
    private int screenshotNum=0;
@@ -18,11 +32,19 @@ public class UrlSelenium {
    }
    public void initDriver()
      {
-          System.setProperty("webdriver.chrome.driver", "chromedriver");
-          this.driver=new ChromeDriver();
-          this.driver.manage().window().setPosition(new Point(-2000, 0));
+        //   System.setProperty("webdriver.chrome.driver", "chromedriver");
+        //   this.driver=new ChromeDriver();
+        //   this.driver.manage().window().setPosition(new Point(-2000, 0));
+        WebDriverManager.chromedriver().setup();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--headless");
+        driver = new ChromeDriver(options);
+
      }
  
+
      public void capture(String site) throws IOException
      {
           this.screenshotNum++;
