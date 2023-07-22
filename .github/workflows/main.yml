@@ -39,7 +39,6 @@ jobs:
 
     - run: | 
         ls -R
-        cat out.log
 
     # - run: mkdir staging && cp target/*jar-with-dependencies.jar staging
 
@@ -47,7 +46,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: Package
-        path: out.log
+        path: *.png
 
   # run-job:
   #     runs-on: ubuntu-latest
