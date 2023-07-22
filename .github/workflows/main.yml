@@ -40,13 +40,13 @@ jobs:
     - run: | 
         ls -R
 
-    # - run: mkdir staging && cp target/*jar-with-dependencies.jar staging
+    - run: mkdir output && cp *.png output
 
-    - name: Upload the log file 
+    - name: Upload the output files 
       uses: actions/upload-artifact@v3
       with:
         name: Package
-        path: *.png
+        path: output
 
   # run-job:
   #     runs-on: ubuntu-latest
